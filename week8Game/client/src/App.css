@@ -1,0 +1,41 @@
+.App {
+  background-color: #eaeff1;
+  font-family: "Raleway", sans-serif;
+  display:flex; 
+  flex-direction:column; 
+  justify-content:center;
+}
+
+.textHeader{
+  align-self: center;
+}
+
+.ListMain{
+  align-self: center;
+}
+
+.question-count{
+  margin-top: 25px;
+}
+
+.Container {
+  display: table-cell;
+  vertical-align: middle;
+  align-self: center;
+}
+
+.question-section{
+  /* Change background color */
+  background-color: white;
+
+  /* Add border */
+  border: 1px solid #bacdd8;
+
+  /* Add space between the border and the content */
+  padding: 8px;
+
+  border-radius: 12px;
+
+  width: 70%;
+
+}
