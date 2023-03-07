@@ -9,7 +9,7 @@ function App() {
   const handleUser = (text) =>{
     setUser(text);
   }
-
+console.log("hi")
   return (
     <div className="App">
     <Header user={user} />
