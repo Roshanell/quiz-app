@@ -25,22 +25,7 @@ app.get("/", (req, res) => {
 
 // //hardcode the game response for testing reasons to don't saturate my API call.
 app.get("/api/game", async (req, res) => {
-	// res.json(fakedata);
-	// const url =
-	// 	"https://opentdb.com/api.php?amount=10&category=11&difficulty=hard&type=multiple";
-	// fetch(url)
-	// 	// takes result and turn it to js
-	// 	.then((result) => result.json())
-	// 	.then((data) => {
-	// 		console.log(data);lss
-	// 		// how you send data back when asked
-	// 		res.send({data});
-	// 	})
-	// 	.catch((err) => {
-	// 		console.log(err);
-	// 	});
-	const url =
-		"https://opentdb.com/api.php?amount=10&category=20&difficulty=easy&type=multiple";
+	const url = `https://opentdb.com/api.php?amount=10&category=20&difficulty=${req.query.difficulty}&type=multiple`;
 
 	// 	// takes result and turn it to js
 	try {
