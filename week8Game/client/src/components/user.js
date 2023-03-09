@@ -16,8 +16,11 @@ const UserForm = (props) => {
 	};
 	return (
 		<div className="ListMain">
+			{/* <p className="instructions">Please provide your name and difficulty level</p> */}
 			<div className="header">
 				<form onSubmit={handleSubmit}>
+					<span>Name</span>
+					<br></br>
 					<input
 						type="text"
 						placeholder="Please enter your name"
@@ -25,6 +28,9 @@ const UserForm = (props) => {
 						value={value}
 						onChange={(e) => setValue(e.target.value)}
 					/>
+					<br></br>
+					<span>Break</span>
+					<br></br>
 					<div className="buttonsContainer">
 						<button onClick={handleClick} value={"easy"}>
 							Easy

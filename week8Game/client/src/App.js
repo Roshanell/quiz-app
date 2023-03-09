@@ -5,6 +5,8 @@ import "./App.css";
 import { useState } from "react";
 import Score from "./components/score.js";
 
+import instructions from "./components/instructions.js";
+
 function App() {
 	const [user, setUser] = useState("");
 	const handleUser = (text) => {
@@ -14,28 +16,38 @@ function App() {
 	const [score, setScore] = useState(0);
 	const [isFinished, setIsFinished] = useState(false);
 	const [difficulty, setDifficulty] = useState("easy");
-	console.log("hi");
+	//const [instructions, setInstructions] = useState("");
 	return (
 		<div className="App">
-			<Header user={user} />
-			{!user ? (
-				<UserForm
-					grabUser={handleUser}
-					difficulty={difficulty}
-					setDifficulty={setDifficulty}
-				/>
-			) : null}
-			{user && !isFinished ? (
-				<Game
-					difficulty={difficulty}
-					score={score}
-					setScore={setScore}
-					setIsFinished={setIsFinished}
-				/>
-			) : null}
+			<div className="game">
+				<div className="sideBar">
+					<image src="client/src/assets" />
+				</div>
+				<div className="gameInformation">
+					<Header user={user} />
+					{!user ? (
+						<UserForm
+							// instructions={instructions}
+							// setInstructions={setInstructions}
+							grabUser={handleUser}
+							difficulty={difficulty}
+							setDifficulty={setDifficulty}
+						/>
+					) : null}
 
-			{/* if score does not equal null then the component will render */}
-			{isFinished ? <Score score={score} /> : null}
+					{user && !isFinished ? (
+						<Game
+							difficulty={difficulty}
+							score={score}
+							setScore={setScore}
+							setIsFinished={setIsFinished}
+						/>
+					) : null}
+
+					{/* if score does not equal null then the component will render */}
+					{isFinished ? <Score score={score} /> : null}
+				</div>
+			</div>
 		</div>
 	);
 }

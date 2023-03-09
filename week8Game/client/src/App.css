@@ -1,17 +1,49 @@
 .App {
+	height: 100vh;
 	background-color: #eff5ff;
 	font-family: "Raleway", sans-serif;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
+}
+.gameInformation {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 3%;
 }
 
+.game {
+	background-color: #ffffff;
+	border-radius: 15px;
+	width: auto;
+	height: auto;
+	border-radius: 15px;
+	display: flex;
+}
+
+.sideBar {
+	border: solid 1px orange;
+	border-radius: 15px;
+	height: auto;
+	width: 10vw;
+	background-image: url("./assets/Oval\ \(1\).png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 1%;
+}
 .textHeader {
-	align-self: center;
+	font-family: Ubuntu;
+	font-size: 32px;
 }
 
 .ListMain {
 	align-self: center;
+}
+
+/* instructions */
+.instructions {
 }
 
 .question-count {
@@ -37,9 +69,4 @@
 	border-radius: 12px;
 
 	width: 70%;
-}
-
-/* Card question */
-
-.correct {
 }
