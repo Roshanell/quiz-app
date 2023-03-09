@@ -1,3 +1,4 @@
+/* Home Page */
 .App {
 	height: 100vh;
 	background-color: #eff5ff;
@@ -6,6 +7,10 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
 }
 .gameInformation {
 	display: flex;
@@ -33,11 +38,63 @@
 	background-repeat: no-repeat;
 	margin: 1%;
 }
+
+.submitButton {
+	background: #022959;
+	border-radius: 8px;
+	color: #ffffff;
+	height: 48px;
+	width: 123px;
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 18px;
+	margin-left: 70%;
+}
+
+.homeButton {
+	margin-left: 5%;
+}
 .textHeader {
-	font-family: Ubuntu;
+	font-family: "Ubuntu";
 	font-size: 32px;
 }
 
+input {
+	height: 48px;
+	width: 450px;
+	left: 0px;
+	top: 0px;
+	border-radius: 8px;
+	border: #d6d9e6 solid 1px;
+	margin-top: 3%;
+}
+span {
+	margin-top: 3%;
+}
+/* Test */
+
+.options {
+	background: #022959;
+	border-radius: 8px;
+	color: #ffffff;
+	height: 48px;
+	width: auto;
+	left: 0px;
+	top: 0px;
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 18px;
+	margin-top: 3%;
+}
+
+/* .buttonsContainer {
+	display: flex;
+	justify-content:space-evenly
+} */
 .ListMain {
 	align-self: center;
 }

@@ -29,21 +29,32 @@ const UserForm = (props) => {
 						onChange={(e) => setValue(e.target.value)}
 					/>
 					<br></br>
-					<span>Break</span>
+					<span>Level</span>
 					<br></br>
 					<div className="buttonsContainer">
-						<button onClick={handleClick} value={"easy"}>
+						<button className="options" onClick={handleClick} value={"easy"}>
 							Easy
 						</button>
-						<button onClick={handleClick} value={"medium"}>
+						<button
+							className="options homeButton"
+							onClick={handleClick}
+							value={"medium"}
+						>
 							Medium
 						</button>
-						<button onClick={handleClick} value={"hard"}>
+						<button
+							className="options homeButton"
+							onClick={handleClick}
+							value={"hard"}
+						>
 							Hard
 						</button>
 					</div>
 					<p>Difficulty: {props.difficulty} </p>
-					<br /> <button type="submit">Send</button>
+					<br />
+					<button type="submit" className="submitButton">
+						Send
+					</button>
 				</form>
 			</div>
 		</div>
