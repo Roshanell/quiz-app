@@ -1,7 +1,6 @@
 function Score(props) {
-	// if (score <= 6) {
-	// 	console.log("you fail");
-	// } else if (score <= 80) {
+	// if (props.score <= 6) {
+	// } else if (props.score <= 80) {
 	// 	console.log("Ok");
 	// } else {
 	// 	console.log("You win");
@@ -9,7 +8,10 @@ function Score(props) {
 
 	return (
 		<div>
-			<h1>Your score is: {props.score}</h1>
+			<h1 className="animate__animated animate__jackInTheBox">
+				Your score is: {props.score}
+			</h1>
+			<img src="https://media.giphy.com/media/xT9DPvwdqWgLGeTTmE/giphy.gif" />
 		</div>
 	);
 }

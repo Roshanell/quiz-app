@@ -4,7 +4,7 @@ import Game from "./components/game.js";
 import "./App.css";
 import { useState } from "react";
 import { decode } from "html-entities";
-import Score from "./components/Score.js"
+import Score from "./components/Score.js";
 
 // import Score from "./components/Score.js";
 
@@ -41,9 +41,25 @@ function App() {
 					) : null}
 
 					{user && !isFinished ? (
-						<Game difficulty={difficulty} setIsFinished={setIsFinished} score={score} setScore={setScore}/>
-					) : <Score score={score} /> }
-					{/* {isFinished ? <Score score={score} /> : null} */}
+						<Game
+							difficulty={difficulty}
+							setIsFinished={setIsFinished}
+							score={score}
+							setScore={setScore}
+						/>
+					) : null}
+
+					{/* {user && !isFinished ? (
+						<Game
+							difficulty={difficulty}
+							setIsFinished={setIsFinished}
+							score={score}
+							setScore={setScore}
+						/>
+					) : (
+						<Score score={score} />
+					)} */}
+					{isFinished ? <Score score={score} /> : null}
 				</div>
 			</div>
 		</div>

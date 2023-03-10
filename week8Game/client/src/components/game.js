@@ -46,7 +46,7 @@ const Game = (props) => {
 			>
 				submit
 			</button>
-			<Score score={props.score}/>
+			{/* <Score score={props.score}/> */}
 		</div>
 	);
 };
