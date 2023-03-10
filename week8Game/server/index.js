@@ -31,6 +31,7 @@ app.get("/api/game", async (req, res) => {
 	try {
 		const apiRequest = await fetch(url);
 		const questions = await apiRequest.json();
+		console.log(questions);
 		res.send(questions);
 	} catch (err) {
 		console.log(err);

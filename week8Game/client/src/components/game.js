@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import QuestionCard from "./questioncard";
+import Timer from "./Timer";
 
 const Game = (props) => {
 	const [questions, setQuestions] = useState([]);
@@ -17,11 +18,22 @@ const Game = (props) => {
 	useEffect(() => {
 		loadData();
 	}, []);
+	const [currentQuestion, setCurrentQuestion] = useState(0);
+	function handleClick(e) {
+		e.preventDefault();
+		console.log(`next question button clicked`);
+		if (currentQuestion < questions.length - 1) {
+			setCurrentQuestion(currentQuestion + 1);
+		}
+	}
 
+	function handleTimerClick() {}
+	// setCurrerntQuestion()
 	return (
 		<div className="Container">
+			<Timer />
 			<div className="question-count">
-				<span>Question 1</span>/{questions.length}
+				<span>{currentQuestion + 1}</span>/{questions.length}
 			</div>
 			{questions.map((question, index) => {
 				return (
@@ -34,6 +46,7 @@ const Game = (props) => {
 				);
 			})}
 			<button
+				className="submitButton"
 				onClick={(e) => {
 					e.preventDefault();
 					props.setIsFinished(true);
@@ -41,6 +54,8 @@ const Game = (props) => {
 			>
 				submit
 			</button>
+			<button onClick={handleClick}> Next Question</button>
+			<button onClick={handleTimerClick}>{props.timer}</button>
 		</div>
 	);
 };

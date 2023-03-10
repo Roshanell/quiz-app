@@ -18,6 +18,7 @@ const QuestionCard = (props) => {
 		setRandomAnswers(newRandomAnswers);
 	}, []);
 	const [selected, setSelected] = useState("");
+	const [count, setCount] = useState(0);
 	const handleClick = (e) => {
 		e.preventDefault();
 		const newSelected = e.target.value;
@@ -30,10 +31,16 @@ const QuestionCard = (props) => {
 		// 		wrong wrong
 		// clicking right/wrong answer twice
 
+		if (selected === props.question.correct_answer) {
+			console.log(`correct answer selected`);
+			console.log(setCount);
+		} else {
+			console.log(`incorrect answer selected`);
+		}
 		setSelected(newSelected);
 	};
 	return (
-		<div className={"question-section"}>
+		<div className={"question-section"} key={props}>
 			<div className="question-text">{props.question.question}</div>
 			<div className="answer-section">
 				{randomAnswers.map((answer) => {
@@ -41,7 +48,7 @@ const QuestionCard = (props) => {
 						return (
 							<button
 								onClick={handleClick}
-								className="correct"
+								className="correct "
 								value={props.question.correct_answer}
 							>
 								{props.question.correct_answer}
@@ -52,6 +59,7 @@ const QuestionCard = (props) => {
 						<button
 							onClick={handleClick}
 							value={props.question.incorrect_answers[answer]}
+							className="options"
 						>
 							{props.question.incorrect_answers[answer]}
 						</button>

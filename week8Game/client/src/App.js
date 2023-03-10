@@ -5,8 +5,6 @@ import "./App.css";
 import { useState } from "react";
 import Score from "./components/score.js";
 
-import instructions from "./components/instructions.js";
-
 function App() {
 	const [user, setUser] = useState("");
 	const handleUser = (text) => {
@@ -16,6 +14,11 @@ function App() {
 	const [score, setScore] = useState(0);
 	const [isFinished, setIsFinished] = useState(false);
 	const [difficulty, setDifficulty] = useState("easy");
+	const [startTime] = useState(new Date());
+	const [time, setTimer] = useState(60);
+	setInterval(() => {
+		setTimer(60 - (new Date().getUTCSeconds() - startTime.getUTCSeconds()));
+	}, 1000);
 	//const [instructions, setInstructions] = useState("");
 	return (
 		<div className="App">
