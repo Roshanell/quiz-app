@@ -12,6 +12,7 @@ function Score(props) {
 				Your score is: {props.score}
 			</h1>
 			<img src="https://media.giphy.com/media/xT9DPvwdqWgLGeTTmE/giphy.gif" />
+        
 		</div>
 	);
 }
