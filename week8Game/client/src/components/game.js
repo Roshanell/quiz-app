@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import Score from "./Score";
 import QuestionCard from "./questioncard";
 import Timer from "./Timer";
 
 const Game = (props) => {
 	const [questions, setQuestions] = useState([]);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
-	const [score, setScore] = useState(0);
+	// const [score, setScore] = useState(0);
 
 	const loadData = () => {
 		const queryParams = new URLSearchParams({ difficulty: props.difficulty });
@@ -31,8 +32,8 @@ const Game = (props) => {
 					<QuestionCard
 						key={index}
 						question={question}
-						score={score}
-						setScore={setScore}
+						score={props.score}
+						setScore={props.setScore}
 					/>
 				);
 			})}
@@ -45,7 +46,7 @@ const Game = (props) => {
 			>
 				submit
 			</button>
-			<h1>{score}</h1>
+			<Score score={props.score}/>
 		</div>
 	);
 };

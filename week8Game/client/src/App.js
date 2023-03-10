@@ -3,9 +3,15 @@ import UserForm from "./components/user.js";
 import Game from "./components/game.js";
 import "./App.css";
 import { useState } from "react";
+import { decode } from "html-entities";
+import Score from "./components/Score.js"
+
+// import Score from "./components/Score.js";
 
 function App() {
 	const [user, setUser] = useState("");
+	const [score, setScore] = useState(0);
+
 	const handleUser = (text) => {
 		setUser(text);
 	};
@@ -23,7 +29,9 @@ function App() {
 			<div className="game">
 				<div className="sideBar"></div>
 				<div className="gameInformation">
-					<Header user={user} />
+					{!isFinished ? <Header user={user} /> : null}
+
+					{/* <Header user={user} /> */}
 					{!user ? (
 						<UserForm
 							grabUser={handleUser}
@@ -33,8 +41,9 @@ function App() {
 					) : null}
 
 					{user && !isFinished ? (
-						<Game difficulty={difficulty} setIsFinished={setIsFinished} />
-					) : null}
+						<Game difficulty={difficulty} setIsFinished={setIsFinished} score={score} setScore={setScore}/>
+					) : <Score score={score} /> }
+					{/* {isFinished ? <Score score={score} /> : null} */}
 				</div>
 			</div>
 		</div>

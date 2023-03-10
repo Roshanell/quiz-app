@@ -32,18 +32,22 @@ const UserForm = (props) => {
 					<span>Level</span>
 					<br></br>
 					<div className="buttonsContainer">
-						<button className="options" onClick={handleClick} value={"easy"}>
+						<button
+							className="options level"
+							onClick={handleClick}
+							value={"easy"}
+						>
 							Easy
 						</button>
 						<button
-							className="options homeButton"
+							className="options homeButton level"
 							onClick={handleClick}
 							value={"medium"}
 						>
 							Medium
 						</button>
 						<button
-							className="options homeButton"
+							className="options homeButton level"
 							onClick={handleClick}
 							value={"hard"}
 						>

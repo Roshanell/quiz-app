@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { decode } from "html-entities";
 
 const QuestionCard = (props) => {
 	// randomize multiple choice answers
@@ -26,7 +27,7 @@ const QuestionCard = (props) => {
 	};
 	return (
 		<div className={"question-section"}>
-			<div className="question-text">{props.question.question}</div>
+			<div className="question-text">{decode(props.question.question)}</div>
 			<div className="answer-section">
 				{randomAnswers.map((answer) => {
 					if (answer === 3) {
@@ -35,10 +36,10 @@ const QuestionCard = (props) => {
 								key={answer}
 								onClick={handleClick}
 								className="options correct "
-								value={props.question.correct_answer}
+								value={decode(props.question.correct_answer)}
 								disabled={disableButton}
 							>
-								{props.question.correct_answer}
+								{decode(props.question.correct_answer)}
 							</button>
 						);
 					}
@@ -46,11 +47,11 @@ const QuestionCard = (props) => {
 						<button
 							key={answer}
 							onClick={handleClick}
-							value={props.question.incorrect_answers[answer]}
+							value={decode(props.question.incorrect_answers[answer])}
 							className="options wrong"
 							disabled={disableButton}
 						>
-							{props.question.incorrect_answers[answer]}
+							{decode(props.question.incorrect_answers[answer])}
 						</button>
 					);
 				})}
