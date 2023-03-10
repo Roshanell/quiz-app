@@ -1,3 +1,6 @@
+html {
+	scroll-behavior: smooth;
+}
 /* Home Page */
 .App {
 	height: 100vh;
@@ -126,4 +129,8 @@ span {
 	border-radius: 12px;
 
 	width: 70%;
+}
+
+button:disabled {
+	opacity: 50%;
 }

@@ -4,6 +4,8 @@ import Timer from "./Timer";
 
 const Game = (props) => {
 	const [questions, setQuestions] = useState([]);
+	const [currentQuestion, setCurrentQuestion] = useState(0);
+	const [score, setScore] = useState(0);
 
 	const loadData = () => {
 		const queryParams = new URLSearchParams({ difficulty: props.difficulty });
@@ -18,17 +20,6 @@ const Game = (props) => {
 	useEffect(() => {
 		loadData();
 	}, []);
-	const [currentQuestion, setCurrentQuestion] = useState(0);
-	function handleClick(e) {
-		e.preventDefault();
-		console.log(`next question button clicked`);
-		if (currentQuestion < questions.length - 1) {
-			setCurrentQuestion(currentQuestion + 1);
-		}
-	}
-
-	function handleTimerClick() {}
-	// setCurrerntQuestion()
 	return (
 		<div className="Container">
 			<Timer />
@@ -40,8 +31,8 @@ const Game = (props) => {
 					<QuestionCard
 						key={index}
 						question={question}
-						score={props.score}
-						setScore={props.setScore}
+						score={score}
+						setScore={setScore}
 					/>
 				);
 			})}
@@ -54,8 +45,7 @@ const Game = (props) => {
 			>
 				submit
 			</button>
-			<button onClick={handleClick}> Next Question</button>
-			<button onClick={handleTimerClick}>{props.timer}</button>
+			<h1>{score}</h1>
 		</div>
 	);
 };

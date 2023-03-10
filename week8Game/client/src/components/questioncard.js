@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const QuestionCard = (props) => {
 	// randomize multiple choice answers
 	const [randomAnswers, setRandomAnswers] = useState([]);
+	const [disableButton, setDisableButton] = useState(false);
 	useEffect(() => {
 		if (randomAnswers.length) return;
 		const newRandomAnswers = [];
@@ -17,39 +18,25 @@ const QuestionCard = (props) => {
 		}
 		setRandomAnswers(newRandomAnswers);
 	}, []);
-	const [selected, setSelected] = useState("");
-	const [count, setCount] = useState(0);
 	const handleClick = (e) => {
-		e.preventDefault();
-		const newSelected = e.target.value;
-		//when changing selected from nothing to something(ALL Are if statements)
-		// 		changing from nothing to wrong
-		// 		changing from nothing to right
-		// when changing from one answer to another
-		// 		wrong to right
-		// 		right to wrong
-		// 		wrong wrong
-		// clicking right/wrong answer twice
-
-		if (selected === props.question.correct_answer) {
-			console.log(`correct answer selected`);
-			console.log(setCount);
-		} else {
-			console.log(`incorrect answer selected`);
+		if (e.target.value === props.question.correct_answer) {
+			props.setScore(props.score + 1);
 		}
-		setSelected(newSelected);
+		setDisableButton(true);
 	};
 	return (
-		<div className={"question-section"} key={props}>
+		<div className={"question-section"}>
 			<div className="question-text">{props.question.question}</div>
 			<div className="answer-section">
 				{randomAnswers.map((answer) => {
 					if (answer === 3) {
 						return (
 							<button
+								key={answer}
 								onClick={handleClick}
 								className="correct "
 								value={props.question.correct_answer}
+								disabled={disableButton}
 							>
 								{props.question.correct_answer}
 							</button>
@@ -57,15 +44,16 @@ const QuestionCard = (props) => {
 					}
 					return (
 						<button
+							key={answer}
 							onClick={handleClick}
 							value={props.question.incorrect_answers[answer]}
 							className="options"
+							disabled={disableButton}
 						>
 							{props.question.incorrect_answers[answer]}
 						</button>
 					);
 				})}
-				{selected ? <p>You selected: {selected}</p> : null}
 			</div>
 		</div>
 	);
