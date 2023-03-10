@@ -34,7 +34,7 @@ const QuestionCard = (props) => {
 							<button
 								key={answer}
 								onClick={handleClick}
-								className="correct "
+								className="options correct "
 								value={props.question.correct_answer}
 								disabled={disableButton}
 							>
@@ -47,7 +47,7 @@ const QuestionCard = (props) => {
 							key={answer}
 							onClick={handleClick}
 							value={props.question.incorrect_answers[answer]}
-							className="options"
+							className="options wrong"
 							disabled={disableButton}
 						>
 							{props.question.incorrect_answers[answer]}

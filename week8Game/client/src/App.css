@@ -3,7 +3,6 @@ html {
 }
 /* Home Page */
 .App {
-	height: 100vh;
 	background-color: #eff5ff;
 	font-family: "Raleway", sans-serif;
 	display: flex;
@@ -92,12 +91,10 @@ span {
 	font-size: 16px;
 	line-height: 18px;
 	margin-top: 3%;
+	margin-left: 5%;
 }
 
-/* .buttonsContainer {
-	display: flex;
-	justify-content:space-evenly
-} */
+
 .ListMain {
 	align-self: center;
 }
