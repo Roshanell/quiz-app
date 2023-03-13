@@ -4,7 +4,10 @@ html {
 
 body {
 	background-color: #eff5ff;
-	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: fit-content;
 }
 /* Home Page */
 .App {
