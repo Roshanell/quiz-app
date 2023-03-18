@@ -19,8 +19,10 @@ const QuestionCard = (props) => {
 		}
 		setRandomAnswers(newRandomAnswers);
 	}, []);
+
 	const handleClick = (e) => {
 		if (e.target.value === props.question.correct_answer) {
+			//update scores using a callback function data goes to parent
 			props.setScore(props.score + 1);
 		}
 		setDisableButton(true);
@@ -62,5 +64,3 @@ const QuestionCard = (props) => {
 
 export default QuestionCard;
 
-// correct answer = props.question.correct_answer
-// incorrect answer = props.incorrect_answers[0]

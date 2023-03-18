@@ -1,5 +1,7 @@
 const Header = (props) => {
 	let message;
+
+// info from parent
 	if (props.user) {
 		message = `Welcome to my game ${props.user}`;
 	} else {

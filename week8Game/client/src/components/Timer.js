@@ -1,5 +1,5 @@
 import { useState } from "react";
-function Timer(props) {
+function Timer() {
 	const [startTime] = useState(new Date());
 	const [counter, setCounter] = useState(60);
 
@@ -7,10 +7,6 @@ function Timer(props) {
 		setCounter(60 - (new Date().getUTCSeconds() - startTime.getUTCSeconds()));
 	}, 1000);
 
-	return (
-			
-			<div>Countdown: {counter}</div>
-		
-	);
+	return <div>Countdown: {counter}</div>;
 }
 export default Timer;

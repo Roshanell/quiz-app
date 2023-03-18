@@ -17,13 +17,15 @@ function App() {
 	};
 	// creating a state for the page to render
 	const [isFinished, setIsFinished] = useState(false);
+	// difficulty
 	const [difficulty, setDifficulty] = useState("easy");
+	// timer
 	const [startTime] = useState(new Date());
 	const [time, setTimer] = useState(60);
 	setInterval(() => {
 		setTimer(60 - (new Date().getUTCSeconds() - startTime.getUTCSeconds()));
 	}, 1000);
-	//const [instructions, setInstructions] = useState("");
+
 	return (
 		<div className="App">
 			<div className="game">
@@ -31,7 +33,6 @@ function App() {
 				<div className="gameInformation">
 					{!isFinished ? <Header user={user} /> : null}
 
-					{/* <Header user={user} /> */}
 					{!user ? (
 						<UserForm
 							grabUser={handleUser}
@@ -49,16 +50,6 @@ function App() {
 						/>
 					) : null}
 
-					{/* {user && !isFinished ? (
-						<Game
-							difficulty={difficulty}
-							setIsFinished={setIsFinished}
-							score={score}
-							setScore={setScore}
-						/>
-					) : (
-						<Score score={score} />
-					)} */}
 					{isFinished ? <Score score={score} /> : null}
 				</div>
 			</div>

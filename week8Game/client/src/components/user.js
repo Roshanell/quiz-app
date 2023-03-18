@@ -5,13 +5,25 @@ const UserForm = (props) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		// if value is falsey
+		//(i.e., null, undefined, false, 0, NaN, or
+		//an empty string). If value is falsy, the code
+		//block following the if statement will be executed.
+		//In this case, the return
+
 		if (!value) return;
+		//callback funtion
+		// if the value is not empty, the function calls the grabUser
+		//function passed down through props with the current value
+		//of the value state variable.
 		props.grabUser(value);
+		// value is name which id defined in App.js line 15 handle user
 		console.log(value);
 		setValue("");
 	};
 	const handleClick = (e) => {
 		e.preventDefault();
+		// callback function that updates the value of the button to whatever is clicked
 		props.setDifficulty(e.target.value);
 	};
 	return (

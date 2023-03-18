@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Score from "./Score";
 import QuestionCard from "./questioncard";
 import Timer from "./Timer";
 
@@ -27,10 +26,12 @@ const Game = (props) => {
 			<div className="question-count">
 				<span>{currentQuestion + 1}</span>/{questions.length}
 			</div>
+			{/* mapping over individual questions */}
 			{questions.map((question, index) => {
 				return (
 					<QuestionCard
 						key={index}
+						//each individual question being mapped over
 						question={question}
 						score={props.score}
 						setScore={props.setScore}
@@ -46,7 +47,6 @@ const Game = (props) => {
 			>
 				submit
 			</button>
-			{/* <Score score={props.score}/> */}
 		</div>
 	);
 };
